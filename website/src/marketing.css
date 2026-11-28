@@ -138,6 +138,21 @@ select:focus-visible,
 .secondary:hover {
   background: var(--surface-raised);
 }
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.header-github {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+}
+.header-github:hover {
+  color: var(--accent);
+}
 .header-cta {
   padding: 10px 16px;
   font-size: 12px;
