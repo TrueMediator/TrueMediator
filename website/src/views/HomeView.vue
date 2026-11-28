@@ -84,6 +84,7 @@ const scenarios = [
     title: "Completed request",
     rows: [
       ["TrueMediator", "25.11 ns", "136 B"],
+      ["MediatR", "47.57 ns", "200 B"],
       ["Mediator", "29.20 ns", "88 B"],
     ],
   },
@@ -91,6 +92,7 @@ const scenarios = [
     title: "Notification",
     rows: [
       ["TrueMediator", "54.70 ns", "184 B"],
+      ["MediatR", "215.53 ns", "768 B"],
       ["Mediator", "36.72 ns", "56 B"],
     ],
   },
@@ -98,6 +100,7 @@ const scenarios = [
     title: "Yielding async request",
     rows: [
       ["TrueMediator", "859.18 ns", "160 B"],
+      ["MediatR", "888.31 ns", "224 B"],
       ["Mediator", "998.18 ns", "192 B"],
     ],
   },
