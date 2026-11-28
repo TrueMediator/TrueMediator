@@ -147,7 +147,7 @@ const faqs = [
             pipelines with registration and dispatch generated at compile time.
           </p>
           <div class="hero-actions">
-            <RouterLink class="button primary" to="/docs/getting-started">Get started</RouterLink>
+            <RouterLink class="button primary" to="/docs/getting-started/">Get started</RouterLink>
           </div>
           <div class="install-command">
             <code>{{ command }}</code
@@ -280,7 +280,7 @@ const faqs = [
             </p>
             <RouterLink
               class="text-link"
-              to="/docs/getting-started#validate-missing-handlers-at-build-time"
+              to="/docs/getting-started/#validate-missing-handlers-at-build-time"
             >Read the validation guide</RouterLink>
           </div>
         </div>
@@ -463,7 +463,7 @@ const faqs = [
               from reaching business logic.
             </p>
             <code class="integration-package">TrueMediator.FluentValidation</code>
-            <RouterLink class="text-link" to="/docs/fluentvalidation"
+            <RouterLink class="text-link" to="/docs/fluentvalidation/"
               >Explore request validation</RouterLink
             >
           </article>
@@ -477,7 +477,7 @@ const faqs = [
               in your handler.
             </p>
             <code class="integration-package">TrueMediator.EntityFrameworkCore</code>
-            <RouterLink class="text-link" to="/docs/entity-framework-core"
+            <RouterLink class="text-link" to="/docs/entity-framework-core/"
               >Explore transaction handling</RouterLink
             >
           </article>
@@ -513,7 +513,7 @@ const faqs = [
         <h2>Put TrueMediator to work.</h2>
         <p>Start with one handler. See how it fits your application.</p>
         <div class="hero-actions">
-          <RouterLink class="button primary" to="/docs/getting-started">Get started</RouterLink>
+          <RouterLink class="button primary" to="/docs/getting-started/">Get started</RouterLink>
         </div>
 
       </section>

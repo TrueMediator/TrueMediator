@@ -24,7 +24,7 @@ export function installFunnelHooks() {
         : link.closest("section")?.id ||
           (link.closest(".hero") ? "hero" : "content");
     if (url.origin === location.origin) {
-      const destination = url.hash.slice(1).split("#")[0];
+      const destination = "/" + url.pathname.slice(import.meta.env.BASE_URL.length).replace(/\/+$/, "");
       if (destination === "/docs/getting-started")
         emitConversion("quick_start_click", placement, destination);
       if (destination === "/docs/evaluating")

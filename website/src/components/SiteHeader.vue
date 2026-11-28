@@ -26,7 +26,7 @@ const open = ref(false);
     >
       <RouterLink to="/#why-truemediator">Features</RouterLink>
       <RouterLink to="/#faq">FAQ</RouterLink>
-      <RouterLink to="/docs/getting-started">Documents</RouterLink>
+      <RouterLink to="/docs/getting-started/">Documents</RouterLink>
     </nav>
     <div class="header-actions">
       <a
@@ -50,7 +50,7 @@ const open = ref(false);
           />
         </svg></a
       >
-    <RouterLink class="button primary header-cta" to="/docs/getting-started"
+    <RouterLink class="button primary header-cta" to="/docs/getting-started/"
       >Get started </RouterLink
     >
     </div>

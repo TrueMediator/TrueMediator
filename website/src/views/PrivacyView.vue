@@ -5,7 +5,7 @@ import SiteFooter from "../components/SiteFooter.vue";
 
 <template>
   <div class="docs-site">
-    <RouterLink class="docs-skip" to="/privacy#privacy-content"
+    <RouterLink class="docs-skip" to="/privacy/#privacy-content"
       >Skip to content</RouterLink
     >
     <SiteHeader />

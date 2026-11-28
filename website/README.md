@@ -17,7 +17,7 @@ npm run dev
 ## GitHub Pages deployment
 
 The production URL is https://truemediator.github.io/TrueMediator/.
-Vite's base is `/TrueMediator/`; the hash router and favicon URLs use that same base.
+Vite's base is `/TrueMediator/`; generated pages, the history router, and asset URLs use that same base.
 The development and preview servers also serve the site under `/TrueMediator/`.
 
 In `TrueMediator/TrueMediator`, set **Settings → Pages → Build and deployment → Source**
@@ -42,7 +42,13 @@ window.addEventListener("truemediator:conversion", ({ detail }) => {
 });
 ```
 
-The existing hash router remains compatible with static hosting. It updates titles and descriptions during client navigation, but documentation does not have separate server-rendered metadata. For an organic-search acquisition campaign, prerendered pages with path-based URLs and matching hosting rewrites are a separate deployment requirement. The root HTML includes the landing page's title, description, and social metadata.
+The build statically renders the homepage, privacy policy, and every Markdown documentation page using Vue's server renderer. Each URL has its own `index.html` with complete content, title, description, canonical URL, and social metadata. The browser hydrates that HTML for interactive examples, navigation, and copying the install command. No application server is needed.
+
+Clean directory URLs such as `/TrueMediator/docs/getting-started/` work directly on GitHub Pages because each page is emitted to a matching directory. Legacy `#/docs/...` bookmarks redirect in the browser to the generated URL, preserving heading fragments and query parameters. `/docs/` redirects to the getting started guide. Unknown URLs receive GitHub Pages' generated `404.html` with `noindex` metadata.
+
+`src/seo.ts` defines the production origin and page descriptions. Update the origin and Vite base if hosting changes. `npm run build` builds client assets, builds a temporary server renderer, generates pages, and removes the temporary renderer. `npm run verify-ssg` verifies the generated HTML and internal links after a build. New Markdown guides are included automatically.
+
+The build also writes `sitemap.xml`, `robots.txt`, and `.nojekyll` into `dist/`. Submit `https://truemediator.github.io/TrueMediator/sitemap.xml` in Google Search Console after deployment. Crawlers only honor `robots.txt` at the domain root; the project-level `/TrueMediator/robots.txt` is not authoritative. If you manage the `truemediator.github.io` root site, publish its robots file there and reference this sitemap.
 
 Keep benchmark data synchronized with the linked repository reports and retain their methodology caveats. Do not present exploratory measurements as production guarantees.
 
@@ -52,7 +58,7 @@ Documentation is rendered from Markdown files in `src/docs/`. Add a `.md` file w
 
 Link between guides using relative Markdown links, for example `[Pipeline behaviors](pipeline-behaviors.md)`. Level-two headings populate the page's table of contents. Raw HTML is disabled in Markdown.
 
-Open `/TrueMediator/#/docs/getting-started` in the local dev server. Hash-based routing supports static hosts without server-side route rewrites. Changes to Markdown update through Vite; production updates require a new build.
+Open `/TrueMediator/docs/getting-started/` in the local dev server. Production builds generate a directory index for every known page, so GitHub Pages needs no application route rewrites. Changes to Markdown update through Vite; production updates require a new build.
 
 ## GitHub wiki
 

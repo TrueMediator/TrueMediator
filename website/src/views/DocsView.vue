@@ -6,11 +6,12 @@ import SiteHeader from "../components/SiteHeader.vue";
 import SiteFooter from "../components/SiteFooter.vue";
 
 const route = useRoute();
+const slug = computed(() => String(route.params.slug ?? "").replace(/\/+$/, ""));
 const page = computed(() =>
-  documents.find((doc) => doc.slug === route.params.slug),
+  documents.find((doc) => doc.slug === slug.value),
 );
 const pageIndex = computed(() =>
-  documents.findIndex((doc) => doc.slug === route.params.slug),
+  documents.findIndex((doc) => doc.slug === slug.value),
 );
 const previousPage = computed(() =>
   pageIndex.value > 0 ? documents[pageIndex.value - 1] : undefined,
@@ -42,7 +43,7 @@ const rendered = computed(() =>
           <RouterLink
             v-for="doc in documents"
             :key="doc.slug"
-            :to="`/docs/${doc.slug}`"
+            :to="`/docs/${doc.slug}/`"
             >{{ doc.title }}</RouterLink
           >
         </nav>
@@ -59,7 +60,7 @@ const rendered = computed(() =>
           <RouterLink
             v-if="previousPage"
             class="docs-page-link"
-            :to="`/docs/${previousPage.slug}`"
+            :to="`/docs/${previousPage.slug}/`"
             rel="prev"
           >
             <span> Previous</span>
@@ -68,7 +69,7 @@ const rendered = computed(() =>
           <RouterLink
             v-if="nextPage"
             class="docs-page-link docs-page-next"
-            :to="`/docs/${nextPage.slug}`"
+            :to="`/docs/${nextPage.slug}/`"
             rel="next"
           >
             <span>Next </span>
@@ -102,7 +103,7 @@ const rendered = computed(() =>
             rel="noopener noreferrer"
             >Explore the sample </a
           >
-          <RouterLink v-else class="button primary" to="/docs/getting-started"
+          <RouterLink v-else class="button primary" to="/docs/getting-started/"
             >Build your first handler </RouterLink
           >
         </section>

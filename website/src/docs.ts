@@ -39,7 +39,7 @@ export function renderDocument(source: string, slug = "getting-started") {
       if (child.type !== "link_open" || typeof href !== "string" || !href)
         return;
       if (href.startsWith("#")) {
-        child.attrSet("href", `#/docs/${slug}${href}`);
+        child.attrSet("href", `${import.meta.env.BASE_URL}docs/${slug}/${href}`);
       } else if (/^[\w./-]+\.md(?:#.*)?$/.test(href)) {
         const parent = slug.split("/").slice(0, -1).join("/");
         const url = new URL(
@@ -48,7 +48,7 @@ export function renderDocument(source: string, slug = "getting-started") {
         );
         child.attrSet(
           "href",
-          `#/docs/${url.pathname.slice(1).replace(/\.md$/, "")}${url.hash}`,
+          `${import.meta.env.BASE_URL}docs/${url.pathname.slice(1).replace(/\.md$/, "")}/${url.hash}`,
         );
       }
     });

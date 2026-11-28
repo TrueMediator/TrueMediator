@@ -12,7 +12,7 @@ import logo from "../assets/logo.svg";
       <p>A lightweight mediator for .NET. MIT licensed.</p>
     </div>
     <nav aria-label="Footer navigation">
-      <RouterLink to="/docs/getting-started">Quick start</RouterLink
+      <RouterLink to="/docs/getting-started/">Quick start</RouterLink
       ><a
         href="https://www.nuget.org/packages/TrueMediator"
         target="_blank"
@@ -24,7 +24,7 @@ import logo from "../assets/logo.svg";
         rel="noopener noreferrer"
         >MIT license </a
       >
-      <RouterLink to="/privacy">Privacy</RouterLink>
+      <RouterLink to="/privacy/">Privacy</RouterLink>
     </nav>
   </footer>
 </template>
