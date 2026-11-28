@@ -18,7 +18,6 @@ export const documents = Object.entries(sources)
     if (b.slug === "getting-started") return 1;
     const order = [
       "evaluating",
-      "migration",
       "pipeline-behaviors",
       "notifications",
       "streaming",

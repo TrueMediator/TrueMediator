@@ -28,11 +28,11 @@ No `CNAME` file is needed for this GitHub-hosted address.
 
 ## Adoption funnel
 
-The home page moves visitors through the product promise, code examples, benefits, benchmark evidence, migration, adoption questions, and quick start. New projects go to the runnable console example; existing MediatR projects go to the migration guide. The evaluation guide supports compatibility decisions. Documentation points visitors onward to implementation and the clean architecture sample.
+The home page moves visitors through the product promise, code examples, benefits, benchmark evidence, adoption questions, and quick start. The getting started guide provides a runnable console example. The evaluation guide supports compatibility decisions. Documentation points visitors onward to implementation and the clean architecture sample.
 
-Primary conversion intent: quick-start visits and successful install-command copies. Secondary intent: migration and evaluation visits, sample exploration, GitHub, and NuGet clicks. A click or clipboard copy does not prove a package install or successful adoption.
+Primary conversion intent: quick-start visits and successful install-command copies. Secondary intent: evaluation visits, sample exploration, GitHub, and NuGet clicks. A click or clipboard copy does not prove a package install or successful adoption.
 
-`src/funnel.ts` emits local `truemediator:conversion` CustomEvents with `name`, `placement`, and optional `destination`. Events are `quick_start_click`, `migration_click`, `evaluation_click`, `github_click`, `nuget_click`, and `install_copy`. No analytics provider, cookies, persistent identifiers, or network collection is configured. Connect your chosen analytics provider to this event before relying on conversion reports; handle consent as appropriate for that provider. Destination values omit query strings and are limited to recognized links.
+`src/funnel.ts` emits local `truemediator:conversion` CustomEvents with `name`, `placement`, and optional `destination`. Events are `quick_start_click`, `evaluation_click`, `github_click`, `nuget_click`, and `install_copy`. No analytics provider, cookies, persistent identifiers, or network collection is configured. Connect your chosen analytics provider to this event before relying on conversion reports; handle consent as appropriate for that provider. Destination values omit query strings and are limited to recognized links.
 
 For example, a provider adapter can subscribe with:
 

@@ -1,6 +1,6 @@
 # Is TrueMediator right for your project?
 
-TrueMediator is a lightweight, MIT-licensed .NET mediator with source-generated registration and dispatch. Use this guide to decide whether to try it in a new project or evaluate an existing application for migration.
+TrueMediator is a lightweight, MIT-licensed .NET mediator with source-generated registration and dispatch. Use this guide to decide whether to use it in your application.
 
 ## Start with your use case
 
@@ -19,21 +19,9 @@ TrueMediator targets .NET Standard 2.0, .NET 8, .NET 10, and .NET 11. Native AOT
 
 The source generator is included in the TrueMediator NuGet package. It reads registration at build time. Use a direct configuration lambda and supported assembly and behavior expressions; dynamic or conditional runtime configuration is unsupported. See [getting started](getting-started.md) for the configuration rules.
 
-## Evaluate an existing MediatR application
-
-Familiar interfaces do not guarantee compatibility with every MediatR integration. Before switching:
-
-- Inventory your request, notification, streaming, and pipeline usage.
-- Review application-specific integrations and registration conventions.
-- Plan namespace and registration changes with the [migration guide](migration.md).
-- Run application tests for pipeline ordering, notification behavior, errors, and cancellation.
-- Test trimming and Native AOT publishing if your deployment requires them.
-
-For parallel notifications, handlers share the publication scope. Their dependencies must support concurrent use. See [notification strategies](notifications.md).
-
 ## Inspect performance evidence
 
-The repository compares TrueMediator, MediatR, and Mediator on .NET 10. The current published results are an exploratory short run with three measurement iterations on a shared development machine. Some repository build and test work overlapped measurement.
+The repository includes TrueMediator benchmarks on .NET 10. The current published results are an exploratory short run with three measurement iterations on a shared development machine. Some repository build and test work overlapped measurement.
 
 These are working examples, not publication-quality evidence. In particular, the yielding async request timing errors overlap substantially, so the results do not establish a reliable async speed winner. Execution time and allocation tradeoffs vary by scenario.
 
@@ -42,5 +30,3 @@ Review [full results and measurement errors](https://github.com/TrueMediator/Tru
 ## Try it on one feature
 
 Use the [quick start](getting-started.md) to run a request and handler. Then inspect the [clean architecture sample](https://github.com/TrueMediator/TrueMediator/tree/master/samples/TrueMediator.Sample.CleanArchitecture) for a larger application structure.
-
-If your application already uses MediatR, begin with the [migration guide](migration.md).

@@ -95,7 +95,7 @@ select:focus-visible,
   display: flex;
   align-items: center;
   gap: 24px;
-  font-size: 12px;
+  font-size: 1rem;
   color: var(--muted);
 }
 .header nav a:hover,
@@ -155,12 +155,12 @@ select:focus-visible,
 }
 .header-cta {
   padding: 10px 16px;
-  font-size: 12px;
+  font-size: 1rem;
 }
 .hero {
   padding-block: 90px 62px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr);
   gap: 64px;
   align-items: center;
 }
@@ -237,7 +237,7 @@ h1 span {
 }
 .hero-proof {
   min-width: 0;
-  transform: rotate(1deg);
+  transform: none;
 }
 .code-window {
   min-width: 0;
@@ -412,7 +412,7 @@ h3 {
 }
 .example-layout {
   display: grid;
-  grid-template-columns: 1fr 1.7fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.7fr);
   gap: 28px;
   align-items: start;
 }
@@ -539,7 +539,7 @@ td {
 }
 .pipeline-flow {
   display: grid;
-  grid-template-columns: 1fr 35px 1fr 35px 1fr;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   align-items: center;
   gap: 12px;
 }
@@ -591,61 +591,9 @@ td {
 .section-tail a {
   flex-shrink: 0;
 }
-.migration-panel {
-  display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  gap: 70px;
-  padding: 45px;
-  border: 1px solid var(--line);
-  border-radius: 9px;
-  background: var(--surface);
-}
-.migration-panel > div > p:not(.eyebrow) {
-  color: var(--muted);
-  font-size: 14px;
-  line-height: 1.8;
-  margin-block: 23px;
-}
-.migration-panel h2 {
-  font-size: 36px;
-}
-.migration-steps {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.migration-steps li {
-  display: flex;
-  gap: 18px;
-  padding: 22px 0;
-  border-bottom: 1px solid var(--line);
-}
-.migration-steps li:first-child {
-  padding-top: 4px;
-}
-.migration-steps li:last-child {
-  border: 0;
-}
-.migration-steps li > span {
-  color: var(--accent);
-  font:
-    11px ui-monospace,
-    monospace;
-  margin-top: 4px;
-}
-.migration-steps h3 {
-  font-size: 16px;
-  margin: 0 0 9px;
-}
-.migration-steps p {
-  font-size: 12px;
-  color: var(--muted);
-  line-height: 1.8;
-  margin: 0;
-}
 .faq-section {
   display: grid;
-  grid-template-columns: 1fr 1.5fr;
+  grid-template-columns: minmax(0, 1fr);
   gap: 80px;
   padding-bottom: 100px;
 }
@@ -726,7 +674,7 @@ details p {
   display: flex;
   gap: 25px;
   flex-wrap: wrap;
-  font-size: 11px;
+  font-size: 1rem;
   color: var(--muted);
 }
 .sr-only {
@@ -769,10 +717,44 @@ details p {
   padding: 10px 14px;
   font-size: 12px;
 }
+/* Center landing-page sections along a shared axis. */
+.hero { justify-items: center; gap: 48px; }
+.hero-copy { max-width: 760px; text-align: center; }
+.hero-description, .install-command { margin-inline: auto; }
+.hero-actions { justify-content: center; }
+.hero-proof {
+  width: 100%;
+  max-width: 860px;
+  margin-inline: auto;
+}
+.example-layout {
+  width: 100%;
+  max-width: 1100px;
+  margin-inline: auto;
+}
+.section-heading {
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+}
+.feature { text-align: center; }
+.faq-section { gap: 40px; }
+.faq-section > div:first-child { text-align: center; }
+.faq-list {
+  width: 100%;
+  max-width: 760px;
+  margin-inline: auto;
+}
+.trust-strip, .section-tail, .benchmark-links {
+  justify-content: center;
+  text-align: center;
+}
+
 @media (max-width: 1100px) {
   .header nav {
     gap: 16px;
-    font-size: 11px;
+    font-size: 1rem;
   }
   .header-cta {
     display: none;
@@ -792,9 +774,6 @@ details p {
   }
   .example-layout pre {
     font-size: 11px;
-  }
-  .migration-panel {
-    gap: 35px;
   }
   .wrap {
     width: calc(100% - 56px);
@@ -816,7 +795,7 @@ details p {
     border: 1px solid var(--line);
     border-radius: 4px;
     padding: 9px 12px;
-    font-size: 12px;
+    font-size: 1rem;
   }
   .header nav {
     display: none;
@@ -838,7 +817,7 @@ details p {
   }
   .header nav a {
     padding: 13px;
-    font-size: 13px;
+    font-size: 1rem;
   }
   .hero {
     grid-template-columns: 1fr;
@@ -963,14 +942,6 @@ details p {
     display: inline-block;
     margin-top: 13px;
   }
-  .migration-panel {
-    grid-template-columns: 1fr;
-    padding: 26px;
-    gap: 35px;
-  }
-  .migration-panel h2 {
-    font-size: 31px;
-  }
   .faq-section {
     grid-template-columns: 1fr;
     gap: 24px;
@@ -992,7 +963,7 @@ details p {
   }
   .footer nav {
     gap: 20px;
-    font-size: 12px;
+    font-size: 1rem;
   }
 }
 @media (prefers-reduced-motion: reduce) {

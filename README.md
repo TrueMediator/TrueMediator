@@ -1,6 +1,6 @@
 # TrueMediator
 
-A free, lightweight MediatR alternative with Native AOT support.
+A free, lightweight .NET mediator with Native AOT support.
 
 Supports `netstandard2.0`, `net8.0`, `net10.0`, and `net11.0`. Native AOT is supported on .NET 8, .NET 10, and .NET 11. Building this repository requires the .NET 11 SDK.
 
@@ -129,18 +129,15 @@ exact concrete notification type, consistent with runtime dispatch.
 
 ## Benchmarks
 
-Speed and managed memory allocations for TrueMediator, MediatR, and Mediator on .NET 10.
+Speed and managed memory allocations for TrueMediator and Mediator on .NET 10.
 Lower values are better; results are from an exploratory short run.
 
 | Scenario | Library | Mean time | Allocated per operation |
 | --- | --- | ---: | ---: |
-| Completed request | MediatR | 47.57 ns | 200 B |
 | Completed request | Mediator | 29.20 ns | 88 B |
 | Completed request | TrueMediator | 25.11 ns | 136 B |
-| Notification | MediatR | 215.53 ns | 768 B |
 | Notification | Mediator | 36.72 ns | 56 B |
 | Notification | TrueMediator | 54.70 ns | 184 B |
-| Yielding async request | MediatR | 888.31 ns | 224 B |
 | Yielding async request | Mediator | 998.18 ns | 192 B |
 | Yielding async request | TrueMediator | 859.18 ns | 160 B |
 

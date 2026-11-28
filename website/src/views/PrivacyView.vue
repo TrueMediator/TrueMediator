@@ -117,7 +117,7 @@ import SiteFooter from "../components/SiteFooter.vue";
         forms, email subscriptions, or other data processing. The date above
         identifies this version.
       </p>
-      <RouterLink class="text-link" to="/">← Back to TrueMediator</RouterLink>
+      <RouterLink class="text-link" to="/"> Back to TrueMediator</RouterLink>
     </main>
     <SiteFooter />
   </div>

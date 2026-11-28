@@ -51,7 +51,7 @@ const open = ref(false);
         </svg></a
       >
     <RouterLink class="button primary header-cta" to="/docs/getting-started"
-      >Get started <span aria-hidden="true">→</span></RouterLink
+      >Get started </RouterLink
     >
     </div>
   </header>

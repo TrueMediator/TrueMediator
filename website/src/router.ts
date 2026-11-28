@@ -22,8 +22,7 @@ export const router = createRouter({
 
 const guideDescriptions: Record<string, string> = {
   "getting-started": "Install TrueMediator and build your first .NET request handler with source-generated registration, dependency injection, and Native AOT support.",
-  "evaluating": "Evaluate TrueMediator for your .NET project: compare mediator features, supported frameworks, Native AOT support, and migration requirements.",
-  "migration": "Migrate from MediatR to TrueMediator. Learn how to update request handlers, dependency injection, pipeline behaviors, and notifications.",
+  "evaluating": "Evaluate TrueMediator for your .NET project: compare mediator features, supported frameworks, Native AOT support, and registration requirements.",
   "pipeline-behaviors": "Build ordered TrueMediator pipeline behaviors for .NET request handlers, including validation, logging, retries, and short-circuiting.",
   "notifications": "Publish TrueMediator notifications to multiple .NET handlers with sequential, parallel, or custom execution strategies and cancellation support.",
   "streaming": "Stream .NET request results with TrueMediator using IAsyncEnumerable, stream request handlers, cancellation, and stream pipeline behaviors.",
@@ -35,13 +34,13 @@ router.afterEach((to) => {
   const page = documents.find((doc) => doc.slug === to.params.slug);
   const title =
     to.path === "/"
-      ? "TrueMediator — MediatR alternative for .NET with Native AOT"
+      ? "TrueMediator — Source-generated mediator for .NET with Native AOT"
       : to.path === "/privacy"
         ? "Privacy policy · TrueMediator"
         : `${page?.title ?? "Page not found"} · TrueMediator`;
   const description =
     to.path === "/"
-      ? "A free, MIT-licensed MediatR alternative for .NET with source-generated dispatch, Native AOT support, CQRS, ordered pipelines, notifications, and streaming."
+      ? "A free, MIT-licensed mediator for .NET with source-generated dispatch, Native AOT support, CQRS, ordered pipelines, notifications, and streaming."
       : to.path === "/privacy"
         ? "How the TrueMediator website handles hosting logs, local interaction events, cookies, and privacy questions."
         : (page && guideDescriptions[page.slug]) ||

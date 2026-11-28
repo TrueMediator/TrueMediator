@@ -3,7 +3,6 @@ import { computed, onUnmounted, ref } from "vue";
 import { emitConversion } from "../funnel";
 import SiteHeader from "../components/SiteHeader.vue";
 import SiteFooter from "../components/SiteFooter.vue";
-const github = "https://github.com/TrueMediator/TrueMediator";
 const command = "dotnet add package TrueMediator";
 const copyState = ref("");
 let copyTimer: ReturnType<typeof setTimeout> | undefined;
@@ -85,7 +84,6 @@ const scenarios = [
     title: "Completed request",
     rows: [
       ["TrueMediator", "25.11 ns", "136 B"],
-      ["MediatR", "47.57 ns", "200 B"],
       ["Mediator", "29.20 ns", "88 B"],
     ],
   },
@@ -93,7 +91,6 @@ const scenarios = [
     title: "Notification",
     rows: [
       ["TrueMediator", "54.70 ns", "184 B"],
-      ["MediatR", "215.53 ns", "768 B"],
       ["Mediator", "36.72 ns", "56 B"],
     ],
   },
@@ -101,7 +98,6 @@ const scenarios = [
     title: "Yielding async request",
     rows: [
       ["TrueMediator", "859.18 ns", "160 B"],
-      ["MediatR", "888.31 ns", "224 B"],
       ["Mediator", "998.18 ns", "192 B"],
     ],
   },
@@ -112,10 +108,6 @@ const faqs = [
   {
     q: "Is TrueMediator free for commercial use?",
     a: "Yes. TrueMediator is MIT licensed and free for personal and commercial projects. The source is available on GitHub.",
-  },
-  {
-    q: "Is it a drop-in replacement for MediatR?",
-    a: "It uses familiar interfaces, but migration requires namespace and registration changes. Review your integrations, supported features, and pipeline behavior before switching. The migration guide walks through those checks.",
   },
   {
     q: "Which .NET versions does it support?",
@@ -144,7 +136,7 @@ const faqs = [
           <p class="eyebrow">THE SOURCE-GENERATED .NET MEDIATOR</p>
           <h1>A .NET mediator.<br /><span>Ready for AOT.</span></h1>
           <p class="hero-lead">
-            A lightweight MediatR alternative.<br />Built for Native AOT. Free
+            A lightweight .NET mediator.<br />Built for Native AOT. Free
             under MIT.
           </p>
           <p class="hero-description">
@@ -152,12 +144,7 @@ const faqs = [
             pipelines with registration and dispatch generated at compile time.
           </p>
           <div class="hero-actions">
-            <RouterLink class="button primary" to="/docs/getting-started"
-              >Build your first handler
-              <span aria-hidden="true">→</span></RouterLink
-            ><RouterLink class="button secondary" to="/docs/migration"
-              >Moving from MediatR?</RouterLink
-            >
+            <RouterLink class="button primary" to="/docs/getting-started">Get started</RouterLink>
           </div>
           <div class="install-command">
             <code>{{ command }}</code
@@ -194,21 +181,13 @@ const faqs = [
               <span class="status-dot"></span> Hello, Ada!
             </div>
           </div>
-          <RouterLink class="example-caption" to="/docs/getting-started"
-            >See registration and the complete example
-            <span>→</span></RouterLink
-          >
+
         </div>
       </section>
       <div class="trust-strip wrap">
         <span>MADE FOR YOUR .NET STACK</span>
         <p>.NET Standard 2.0 <i>/</i> .NET 8 <i>/</i> .NET 10 <i>/</i> .NET 11</p>
-        <a
-          :href="`${github}/blob/master/LICENSE`"
-          target="_blank"
-          rel="noopener noreferrer"
-          >MIT licensed ↗</a
-        >
+
       </div>
 
       <section id="why-truemediator" class="wrap section-space">
@@ -230,9 +209,7 @@ const faqs = [
               Source-generated registration and dispatch support trimming and
               Native AOT on .NET 8, .NET 10, and .NET 11.
             </p>
-            <RouterLink class="text-link" to="/docs/evaluating"
-              >Check the fit →</RouterLink
-            >
+
           </article>
           <article class="feature">
             <span class="feature-number">02 / BUILD</span>
@@ -241,20 +218,16 @@ const faqs = [
               Use requests and handlers for application logic. Compose logging,
               validation, and retries as ordered behaviors.
             </p>
-            <RouterLink class="text-link" to="/docs/pipeline-behaviors"
-              >Explore pipelines →</RouterLink
-            >
+
           </article>
           <article class="feature">
             <span class="feature-number">03 / ADOPT</span>
             <h3>Familiar interfaces.<br />An open license.</h3>
             <p>
               Work with familiar mediator patterns under MIT. Start a new
-              project or evaluate a migration with the source in reach.
+              project with the source in reach.
             </p>
-            <RouterLink class="text-link" to="/docs/migration"
-              >Read the migration guide →</RouterLink
-            >
+
           </article>
         </div>
       </section>
@@ -281,14 +254,12 @@ const faqs = [
               <span class="example-index">0{{ index + 1 }}</span
               ><strong>{{ item.title }}</strong
               ><span>{{ item.description }}</span
-              ><b aria-hidden="true">↗</b>
+              >
             </button>
           </div>
           <div class="code-window">
             <div class="code-bar">
               <span>{{ example.label }}</span
-              ><RouterLink :to="`/docs/${example.guide}`"
-                >Full guide →</RouterLink
               >
             </div>
             <pre
@@ -370,21 +341,7 @@ const faqs = [
             publication-quality evidence. Async timing errors overlap; no
             reliable async speed winner is established.
           </p>
-          <div class="benchmark-links">
-            <a
-              class="text-link"
-              :href="`${github}/blob/master/benchmarks/results/short-run.md`"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Results, versions &amp; measurement errors ↗</a
-            ><a
-              class="text-link"
-              :href="`${github}/blob/master/benchmarks/README.md`"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Reproduce the benchmarks ↗</a
-            >
-          </div>
+
         </div>
       </section>
 
@@ -408,13 +365,13 @@ const faqs = [
             <h3>Validation</h3>
             <p>Check the request.</p>
           </div>
-          <b aria-hidden="true">→</b>
+
           <div>
             <span>02 / YOUR BEHAVIOR</span>
             <h3>Logging</h3>
             <p>Record the operation.</p>
           </div>
-          <b aria-hidden="true">→</b>
+
           <div>
             <span>03 / YOUR HANDLER</span>
             <h3>Business logic</h3>
@@ -426,62 +383,17 @@ const faqs = [
             Illustrative behaviors you implement and register. Retries and
             exception handling can live here, too.
           </p>
-          <RouterLink class="text-link" to="/docs/pipeline-behaviors"
-            >Build your pipeline →</RouterLink
-          >
+
         </div>
       </section>
 
-      <section id="migration" class="wrap section-space">
-        <div class="migration-panel">
-          <div>
-            <p class="eyebrow">ALREADY USING MEDIATR?</p>
-            <h2>A familiar starting point.<br />A deliberate migration.</h2>
-            <p>
-              Keep the request-and-handler pattern. Review compatibility, update
-              your configuration, and verify your application’s behavior.
-            </p>
-            <RouterLink class="button primary" to="/docs/migration"
-              >Plan your migration <span aria-hidden="true">→</span></RouterLink
-            >
-          </div>
-          <ol class="migration-steps">
-            <li>
-              <span>01</span>
-              <div>
-                <h3>Check your requirements</h3>
-                <p>Review supported features and your MediatR integrations.</p>
-              </div>
-            </li>
-            <li>
-              <span>02</span>
-              <div>
-                <h3>Update namespaces and registration</h3>
-                <p>Use TrueMediator.Contracts and AddTrueMediator.</p>
-              </div>
-            </li>
-            <li>
-              <span>03</span>
-              <div>
-                <h3>Verify your application</h3>
-                <p>
-                  Test pipelines, notifications, and cancellation before
-                  rollout.
-                </p>
-              </div>
-            </li>
-          </ol>
-        </div>
-      </section>
 
       <section id="faq" class="wrap section-space faq-section">
         <div>
           <p class="eyebrow">BEFORE YOU COMMIT</p>
           <h2>A few things<br />worth knowing.</h2>
           <p>Evaluate the details before you adopt.</p>
-          <RouterLink class="text-link" to="/docs/evaluating"
-            >Read the adoption checklist →</RouterLink
-          >
+
         </div>
         <div class="faq-list">
           <details v-for="item in faqs" :key="item.q">
@@ -496,23 +408,9 @@ const faqs = [
         <h2>Put TrueMediator to work.</h2>
         <p>Start with one handler. See how it fits your application.</p>
         <div class="hero-actions">
-          <RouterLink class="button primary" to="/docs/getting-started"
-            >Follow the quick start →</RouterLink
-          ><a
-            class="button secondary"
-            :href="`${github}/tree/master/samples/TrueMediator.Sample.CleanArchitecture`"
-            target="_blank"
-            rel="noopener noreferrer"
-            >Explore a real sample ↗</a
-          >
+          <RouterLink class="button primary" to="/docs/getting-started">Get started</RouterLink>
         </div>
-        <a
-          class="text-link cta-source"
-          :href="github"
-          target="_blank"
-          rel="noopener noreferrer"
-          >Inspect the source on GitHub ↗</a
-        >
+
       </section>
     </main>
     <SiteFooter />

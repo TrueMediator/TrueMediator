@@ -46,7 +46,7 @@ const rendered = computed(() =>
             >{{ doc.title }}</RouterLink
           >
         </nav>
-        <RouterLink class="docs-home" to="/">← Back to home</RouterLink>
+        <RouterLink class="docs-home" to="/"> Back to home</RouterLink>
       </aside>
       <main id="doc-content" class="docs-main" tabindex="-1">
         <p class="eyebrow">TRUEMEDIATOR / GUIDES</p>
@@ -62,7 +62,7 @@ const rendered = computed(() =>
             :to="`/docs/${previousPage.slug}`"
             rel="prev"
           >
-            <span>← Previous</span>
+            <span> Previous</span>
             <strong>{{ previousPage.title }}</strong>
           </RouterLink>
           <RouterLink
@@ -71,7 +71,7 @@ const rendered = computed(() =>
             :to="`/docs/${nextPage.slug}`"
             rel="next"
           >
-            <span>Next →</span>
+            <span>Next </span>
             <strong>{{ nextPage.title }}</strong>
           </RouterLink>
         </nav>
@@ -100,10 +100,10 @@ const rendered = computed(() =>
             href="https://github.com/TrueMediator/TrueMediator/tree/master/samples/TrueMediator.Sample.CleanArchitecture"
             target="_blank"
             rel="noopener noreferrer"
-            >Explore the sample ↗</a
+            >Explore the sample </a
           >
           <RouterLink v-else class="button primary" to="/docs/getting-started"
-            >Build your first handler →</RouterLink
+            >Build your first handler </RouterLink
           >
         </section>
         <a
@@ -112,7 +112,7 @@ const rendered = computed(() =>
           :href="`https://github.com/TrueMediator/TrueMediator/edit/master/website/src/docs/${page.slug}.md`"
           target="_blank"
           rel="noopener noreferrer"
-          >Edit this page on GitHub ↗</a
+          >Edit this page on GitHub </a
         >
       </main>
       <aside v-if="rendered.headings.length" class="docs-toc">

@@ -12,7 +12,7 @@
 }
 .docs-layout {
   display: grid;
-  grid-template-columns: 190px minmax(0, 1fr) 155px;
+  grid-template-columns: 210px minmax(0, 1fr) 190px;
   gap: 38px;
   align-items: start;
   padding-block: 45px 100px;
@@ -21,6 +21,11 @@
 .docs-toc {
   position: sticky;
   top: 28px;
+}
+.docs-sidebar .eyebrow,
+.docs-toc .eyebrow {
+  font-size: 0.875rem;
+  letter-spacing: 0.08em;
 }
 .docs-sidebar nav,
 .docs-toc {
@@ -32,7 +37,7 @@
   padding: 11px 12px;
   border-radius: 5px;
   color: var(--muted);
-  font-size: 12px;
+  font-size: 1rem;
   line-height: 1.5;
 }
 .docs-sidebar nav > a:hover,
@@ -44,10 +49,10 @@
   display: inline-block;
   margin-top: 30px;
   color: var(--muted);
-  font-size: 11px;
+  font-size: 1rem;
 }
 .docs-toc > a {
-  font-size: 11px;
+  font-size: 1rem;
   line-height: 1.6;
   color: var(--muted);
   padding-block: 5px;
@@ -246,7 +251,7 @@
     width: 100%;
   }
   .docs-sidebar nav > a {
-    font-size: 11px;
+    font-size: 1rem;
     padding: 8px;
   }
   .docs-home {

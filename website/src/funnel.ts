@@ -27,8 +27,6 @@ export function installFunnelHooks() {
       const destination = url.hash.slice(1).split("#")[0];
       if (destination === "/docs/getting-started")
         emitConversion("quick_start_click", placement, destination);
-      if (destination === "/docs/migration")
-        emitConversion("migration_click", placement, destination);
       if (destination === "/docs/evaluating")
         emitConversion("evaluation_click", placement, destination);
     } else if (
