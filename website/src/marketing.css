@@ -410,6 +410,43 @@ h3 {
   text-decoration: underline;
   text-underline-offset: 5px;
 }
+.handler-validation-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: 32px;
+  align-items: center;
+}
+.handler-diagnostic {
+  padding: 20px 24px;
+  border-top: 1px solid var(--line);
+  background: var(--surface-raised);
+}
+.handler-diagnostic strong {
+  font-size: 14px;
+  color: var(--accent);
+}
+.handler-diagnostic p,
+.handler-validation-copy p {
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+.handler-diagnostic p {
+  margin: 10px 0 0;
+}
+.handler-validation-copy h3 {
+  margin: 0 0 16px;
+  font-size: 24px;
+  letter-spacing: -0.7px;
+}
+.handler-validation-copy code,
+.handler-diagnostic code {
+  font-size: 0.875em;
+}
+.handler-validation-copy .text-link {
+  font-size: 16px;
+}
 .example-layout {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.7fr);
@@ -590,6 +627,48 @@ td {
 }
 .section-tail a {
   flex-shrink: 0;
+}
+.integration-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 0;
+}
+.integration-status {
+  display: inline-block;
+  padding: 4px 10px;
+  border: 1px solid var(--support);
+  border-radius: 20px;
+  color: var(--support);
+  font-size: 14px;
+  line-height: 1.5;
+}
+.integration-status-upcoming {
+  border-color: var(--line);
+  color: var(--muted);
+}
+.integration-card p {
+  font-size: 16px;
+}
+.integration-card code {
+  font-size: 0.875em;
+  overflow-wrap: anywhere;
+}
+.integration-package {
+  display: block;
+  max-width: 100%;
+  margin-top: auto;
+  margin-bottom: 18px;
+  color: var(--support);
+  line-height: 1.8;
+}
+.integration-card .text-link {
+  font-size: 16px;
+}
+.integration-card .integration-roadmap {
+  margin-top: auto;
+  margin-bottom: 0;
+  font-size: 14px;
 }
 .faq-section {
   display: grid;
@@ -876,6 +955,7 @@ details p {
     margin-top: 20px;
     font-size: 24px;
   }
+  .handler-validation-layout,
   .example-layout {
     grid-template-columns: 1fr;
     gap: 20px;

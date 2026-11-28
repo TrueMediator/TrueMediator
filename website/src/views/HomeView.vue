@@ -235,6 +235,57 @@ const faqs = [
         </div>
       </section>
 
+      <section id="build-time-validation" class="wrap section-space">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">BUILD-TIME HANDLER VALIDATION</p>
+            <h2>Missing a handler?<br />Catch it when you build.</h2>
+          </div>
+          <p>
+            TrueMediator checks for missing request handlers by default.<br />
+            Get a compiler error before the request ever runs.
+          </p>
+        </div>
+        <div class="handler-validation-layout">
+          <div class="code-window">
+            <div class="code-bar">
+              <span>CreateOrder.cs</span><span>C# / .NET</span>
+            </div>
+            <pre tabindex="0" aria-label="Request without a registered handler"><code><span class="purple">public sealed record</span> <span class="aqua">CreateOrder</span>(<span class="purple">string</span> ProductId)
+    : <span class="aqua">IRequest</span>&lt;<span class="aqua">Guid</span>&gt;;
+
+<span class="comment">// No registered handler for CreateOrder.</span></code></pre>
+            <div class="handler-diagnostic">
+              <strong>Error TM007 · Missing request handler</strong>
+              <p>
+                Add a concrete handler and include its assembly in
+                <code>AddTrueMediator</code> registration.
+              </p>
+            </div>
+          </div>
+          <div class="handler-validation-copy">
+            <h3>Checked by the source generator.</h3>
+            <p>
+              Requests with or without a response and streaming requests are
+              checked, including requests you haven't dispatched yet.
+            </p>
+            <p>
+              Validation covers concrete, closed request types in the assembly
+              containing <code>AddTrueMediator</code> and assemblies included in
+              that registration. Each needs a handler for its exact type.
+            </p>
+            <p>
+              Notifications can have no subscribers. Enable
+              <code>ValidateNotificationHandlers(true)</code> to check those too.
+            </p>
+            <RouterLink
+              class="text-link"
+              to="/docs/getting-started#validate-missing-handlers-at-build-time"
+            >Read the validation guide</RouterLink>
+          </div>
+        </div>
+      </section>
+
       <section id="examples" class="wrap section-space examples-section">
         <div class="section-heading">
           <div>
@@ -390,6 +441,57 @@ const faqs = [
         </div>
       </section>
 
+
+      <section id="integrations" class="wrap section-space integrations-section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">READY-MADE PIPELINE BEHAVIORS</p>
+            <h2>Ready-made behaviors for your app.</h2>
+          </div>
+          <p>
+            Validate requests and handle database transactions without writing
+            the behaviors yourself.<br />Install the optional packages and enable what you need.
+          </p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature integration-card">
+            <span class="integration-status">Available</span>
+            <h3>FluentValidation</h3>
+            <p>
+              Run synchronous and asynchronous validation rules before your
+              handler. Collect validation failures and stop invalid requests
+              from reaching business logic.
+            </p>
+            <code class="integration-package">TrueMediator.FluentValidation</code>
+            <RouterLink class="text-link" to="/docs/fluentvalidation"
+              >Explore request validation</RouterLink
+            >
+          </article>
+          <article class="feature integration-card">
+            <span class="integration-status">Available</span>
+            <h3>Entity Framework Core</h3>
+            <p>
+              Mark requests with <code>[Transactional]</code> to wrap their
+              handlers in a database transaction. Commit on success and roll
+              back on failure, with explicit <code>SaveChangesAsync</code> calls
+              in your handler.
+            </p>
+            <code class="integration-package">TrueMediator.EntityFrameworkCore</code>
+            <RouterLink class="text-link" to="/docs/entity-framework-core"
+              >Explore transaction handling</RouterLink
+            >
+          </article>
+          <article class="feature integration-card">
+            <span class="integration-status integration-status-upcoming">Coming soon</span>
+            <h3>OpenTelemetry</h3>
+            <p>
+              An OpenTelemetry integration is on the way to help you observe
+              your mediator operations alongside the rest of your application.
+            </p>
+            <p class="integration-roadmap">Planned integration · Not yet available</p>
+          </article>
+        </div>
+      </section>
 
       <section id="faq" class="wrap section-space faq-section">
         <div>
