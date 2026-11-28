@@ -18,7 +18,7 @@ dotnet run -c Release --project benchmarks/TrueMediator.Benchmarks -- --filter '
 dotnet run -c Release --project benchmarks/TrueMediator.Benchmarks -- --filter '*' --job short --artifacts benchmarks/BenchmarkDotNet.Artifacts
 
 # Pairwise speed and allocation comparisons for all three libraries.
-python3 benchmarks/compare.py benchmarks/BenchmarkDotNet.Artifacts/results/TrueMediator.Benchmarks.DispatchBenchmarks-report-full.json
+dotnet run --file benchmarks/compare.cs -- benchmarks/BenchmarkDotNet.Artifacts/results/TrueMediator.Benchmarks.DispatchBenchmarks-report-full.json
 ```
 
 The default full run writes reports under `BenchmarkDotNet.Artifacts/results`
@@ -61,7 +61,7 @@ the runtime, hardware, versions and settings with any published results.
 - **Alloc Ratio**: allocation relative to MediatR. `0.75` means 25% fewer bytes.
 - **Gen0 / Gen1 / Gen2**: garbage collections per 1,000 operations.
 
-`compare.py` prints every pair within each scenario. Speed factor is
+`compare.cs` prints every pair within each scenario. Speed factor is
 `slower mean / faster mean`; time reduction is `100 * (1 - faster / slower)`.
 Allocation reduction uses the same percentage formula. Zero allocations are
 reported directly rather than dividing by zero. Close results with overlapping
